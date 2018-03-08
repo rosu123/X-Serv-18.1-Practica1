@@ -54,6 +54,8 @@ class webApp:
             print('HTTP request received (going to parse and process):')
             request = recvSocket.recv(2048).decode('utf-8')
             print(request)
+            if not request:
+                continue
             parsedRequest = self.parse(request)
             (returnCode, htmlAnswer) = self.process(parsedRequest)
             print('Answering back...')
